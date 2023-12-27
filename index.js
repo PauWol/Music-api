@@ -1,4 +1,4 @@
-const { Music , Auth} = require('./functions');
+const { Music , Auth } = require('./functions');
 const express = require('express');
 const app = express();
 var cors = require('cors');
