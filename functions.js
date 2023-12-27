@@ -49,7 +49,7 @@ class Auth {
     }
 
     user_exsists(){
-        let contents = fs.readFileSync("./auth.json");
+        let contents = fs.readFileSync("auth.json");
         let users = JSON.parse(contents);
 
         for (const i in users.users) {
@@ -63,7 +63,7 @@ class Auth {
     }
 
     right_credentials(){
-        let contents = fs.readFileSync("./auth.json");
+        let contents = fs.readFileSync("auth.json");
         let users = JSON.parse(contents);
 
         for (const i in users.users) {
@@ -78,7 +78,7 @@ class Auth {
     }
 
     save_to_file(){
-        let contents = fs.readFileSync("./auth.json");
+        let contents = fs.readFileSync("auth.json");
         let users = JSON.parse(contents);
 
         if (!this.user_exsists()) {
@@ -91,7 +91,7 @@ class Auth {
     
             let jsonString = JSON.stringify(users);
     
-            fs.writeFile("./auth.json", jsonString, function(err) {
+            fs.writeFile("auth.json", jsonString, function(err) {
                 if (err) throw err;
                 console.log("Data added to file");
               });
@@ -99,7 +99,7 @@ class Auth {
     }
 
     check_token(token){
-        let contents = fs.readFileSync("./auth.json");
+        let contents = fs.readFileSync("auth.json");
         let users = JSON.parse(contents);
 
         for (const i in users.users) {
@@ -113,7 +113,7 @@ class Auth {
     }
 
     count_requests(token){
-        let contents = fs.readFileSync("./auth.json");
+        let contents = fs.readFileSync("auth.json");
         let users = JSON.parse(contents);
 
         for (const i in users.users) {
@@ -122,7 +122,7 @@ class Auth {
                 if (element.token == token) {
                     users.users[i].totalRequests = users.users[i].totalRequests + 1
                     let json = JSON.stringify(users);
-                    fs.writeFile("./auth.json", json, (err) => {
+                    fs.writeFile("auth.json", json, (err) => {
                         if (err) {
                         console.error(err);
                         }
